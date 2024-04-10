@@ -1,13 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MetaMaskConnect from "./components/wallet/MetaMaskConnect"
 
-function App() {
+const App = () => {
   return (
-    <div className='bg-gray-100 h-96'>
-      <h1 className='text-gray-400'>Hello !!</h1>
+    <div className="App">
+      <MetaMaskConnect />
     </div>
   );
-}
+};
 
 export default App;
