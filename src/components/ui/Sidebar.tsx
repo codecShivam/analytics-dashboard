@@ -1,7 +1,6 @@
 import logo from "../../assets/logo.png";
 import credentialsIcon from "../../assets/sidebar/credentials.png";
 import walletIcon from "../../assets/sidebar/walletIcon.png";
-import profileIcon from "../../assets/sidebar/profile.png";
 import graphsIcon from "../../assets/sidebar/profileIcon.png";
 import supportIcon from "../../assets/sidebar/tech support icon.png";
 import repoIcon from "../../assets/sidebar/repo_icon.png";
@@ -15,7 +14,6 @@ export default function Sidebar() {
     const handleButtonClick = (button: string) => {
         setActive(button)
     }
-
 
     return (
         <aside className="flex flex-col items-center px-5 pt-8 h-screen bg-[#0F123F] max-md:pl-5">
