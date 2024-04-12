@@ -26,7 +26,7 @@ const LargeBalance: React.FC = () => {
                 </div>
                 <div className="flex gap-5 justify-between self-start mt-1.5 text-sm font-bold tracking-tight leading-6 whitespace-nowrap text-slate-400">
                     <div className="my-auto">Daily</div>
-                    
+
                 </div>
             </div>
             <div className="flex gap-3.5 mt-7 max-md:flex-wrap max-md:max-w-full">
@@ -41,12 +41,23 @@ const LargeBalance: React.FC = () => {
                 </div>
                 <div className="flex flex-col grow shrink-0 basis-0 w-fit max-md:max-w-full">
                     <div className="flex gap-5 max-md:flex-wrap max-md:pr-5 max-md:max-w-full justify-between">
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <div key={index} className="flex flex-col">
-                                <div className="shrink-0 rounded-sm w-[8.61px] bg-slate-200 h-[264.09px]" />
-                                <div className="shrink-0 rounded-sm " />
-                            </div>
-                        ))}
+                        {Array.from({ length: 12 }).map((_, index) => {
+                            // Define heights and colors for each bar (you can adjust these as needed)
+                            const heights = [150, 100, 200, 180, 120, 250, 180, 220, 190, 160, 210, 140];
+                            const colors = ["bg-blue-500", "bg-green-500", "bg-yellow-500", "bg-red-500", "bg-purple-500", "bg-pink-500", "bg-indigo-500", "bg-teal-500", "bg-orange-500", "bg-cyan-500", "bg-gray-500", "bg-blue-500"];
+
+                            return (
+                                <div key={index} className="flex flex-col h-[264.09px]">
+                                    <div
+                                        className={`shrink-0 rounded-sm ${colors[index]} w-[8.61px]`}
+                                        style={{ height: `${heights[index]}px` }}
+                                    />
+                                    <div className="mt-2 w-[8.61px] bg-gray-500"
+                                        style={{ height: `${264.09 - heights[index]}px` }}
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                     <div className="shrink-0 h-px border border-solid bg-slate-200 border-slate-200 max-md:max-w-full" />
                 </div>
