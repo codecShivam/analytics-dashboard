@@ -3,6 +3,7 @@ import Points from "./Points";
 import MetaMaskConnect from "../wallet/MetaMaskConnect";
 import Status from "./Status";
 import LargeBalance from "./LargeBalance";
+import SmallChart from "./SmallChart";
 
 const Analysis: React.FC = () => {
     return (
@@ -23,6 +24,7 @@ const Analysis: React.FC = () => {
                         <Status />
                         <LargeBalance />
                     </div>
+                    <SmallChart />
                 </div>
             </div>
         </div>
