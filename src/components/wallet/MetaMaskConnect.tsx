@@ -64,13 +64,7 @@ const MetaMaskConnect: React.FC = () => {
     }
   };
 
-  const handleDisconnect = (index: number) => {
-    const updatedWallets = [...wallets];
-    updatedWallets.splice(index, 1);
-    setWallets(updatedWallets);
-    setSelectedWalletIndex(0);
-    if (index === selectedWalletIndex) setSelectedWalletIndex(0);
-  };
+
 
   const handleWalletClick = async (index: number) => {
     try {
@@ -87,7 +81,13 @@ const MetaMaskConnect: React.FC = () => {
   return (
     <div>
       <div>
-        <button onClick={() => setDropdownOpen(!dropdownOpen)}>
+        <button onClick={() => {
+          if (wallets[selectedWalletIndex].accounts.length === 0) {
+            handleConnect();
+          } else {
+            setDropdownOpen(!dropdownOpen);
+          }
+        }}>
           <div className="flex gap-2.5 justify-between items-center px-3.5 py-2.5 text-base font-semibold leading-7 text-gray-900 whitespace-nowrap bg-white rounded-lg border border-gray-200 border-solid">
             <img
               loading="lazy"
@@ -109,6 +109,7 @@ const MetaMaskConnect: React.FC = () => {
           </div>
           {dropdownOpen && (
             <div className="absolute top-[84px] ml-0.5 bg-white border border-gray-200 shadow-md">
+
               {wallets.map((wallet, index) => (
                 <div
                   key={index}
@@ -116,7 +117,7 @@ const MetaMaskConnect: React.FC = () => {
                   onClick={() => handleWalletClick(index)}
                 >
                   <div>
-                    {wallet.accounts[0].substring(0, 12)}...{wallet.accounts[0].substring(wallet.accounts[0].length - 4)}
+                    {wallet.accounts[0]?.substring(0, 12)}...{wallet.accounts[0]?.substring(wallet.accounts[0]?.length - 4)}
                   </div>
                 </div>
               ))}
