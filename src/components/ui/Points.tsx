@@ -17,7 +17,7 @@ const Points: React.FC<GPointsProps> = ({ points }) => {
             </div>
             <button className=" flex flex-col justify-center p-0.5 text-xs font-medium tracking-wide leading-5 text-center text-white bg-violet-100 rounded-[28.851px]">
                 <div className="justify-center px-5 py-1 bg-orange-500 rounded-[28.851px]">
-                    BUY{" "}
+                    BUY
                 </div>
             </button> 
         </div>

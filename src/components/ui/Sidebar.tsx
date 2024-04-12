@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import logo from "../../assets/logo.png";
 import credentialsIcon from "../../assets/sidebar/credentials.png";
 import walletIcon from "../../assets/sidebar/walletIcon.png";
@@ -5,19 +6,19 @@ import graphsIcon from "../../assets/sidebar/profileIcon.png";
 import supportIcon from "../../assets/sidebar/tech support icon.png";
 import repoIcon from "../../assets/sidebar/repo_icon.png";
 import analyticsIcon from "../../assets/sidebar/analytics.png";
-import { useState } from "react";
 
-export default function Sidebar() {
+type SidebarSection = 'credentials' | 'wallets' | 'profile' | 'graphs' | 'support' | 'repo';
 
-    const [active, setActive] = useState<string>('graphs')
+const Sidebar: React.FC = () => {
+    const [active, setActive] = useState<SidebarSection>('graphs');
 
-    const handleButtonClick = (button: string) => {
-        setActive(button)
-    }
+    const handleButtonClick = (section: SidebarSection) => {
+        setActive(section);
+    };
 
     return (
         <aside className="flex flex-col items-center px-5 pt-8 h-screen bg-[#0F123F] max-md:pl-5">
-            <button >
+            <button>
                 <img
                     loading="eager"
                     src={logo}
@@ -59,7 +60,7 @@ export default function Sidebar() {
                     <img
                         loading="eager"
                         src={supportIcon}
-                        alt="techinical support"
+                        alt="technical support"
                     />
                 </button>
                 <button onClick={() => handleButtonClick('repo')} className={`${active === 'repo' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""} max-md:mt-2 mt-6 p-[14px]`}>
@@ -72,4 +73,6 @@ export default function Sidebar() {
             </div>
         </aside>
     );
-}
+};
+
+export default Sidebar;
