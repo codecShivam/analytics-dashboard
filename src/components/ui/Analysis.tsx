@@ -2,6 +2,7 @@ import React from "react";
 import Points from "./Points";
 import MetaMaskConnect from "../wallet/MetaMaskConnect";
 import Status from "./Status";
+import LargeBalance from "./LargeBalance";
 
 const Analysis: React.FC = () => {
     return (
@@ -20,6 +21,7 @@ const Analysis: React.FC = () => {
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <div className="flex flex-col w-[78%] max-md:ml-0 max-md:w-full">
                         <Status />
+                        <LargeBalance />
                     </div>
                 </div>
             </div>
