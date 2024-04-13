@@ -10,7 +10,10 @@ const LargeBalance: React.FC = () => {
                     <h2 className="grow my-auto text-2xl font-bold tracking-tight leading-8 text-blue-950">
                         Daily GPoints Earning
                     </h2>
-                    <div className="flex flex-auto gap-5 justify-between items-start px-6 py-5 max-md:px-5 border-b-0 border-solid border-l-2 border-t-2 border-r-0 " style={{ borderImage: 'linear-gradient(to right  , #F57E07, #F8DC7A, #FFFFFF) 1' }}>
+                    <div className="flex flex-auto gap-5 justify-between items-start px-6 py-5 max-md:px-5 relative rounded-md overflow-hidden shadow-sm min-h-[73px] min-w-[286px] " >
+                        <div className="bg-gradient-to-r from-[#F57E07] via-[#F8DC7A] to-white w-[70%] h-[2px]  absolute top-0 left-0" />
+                        <div className="bg-gradient-to-b from-[#F57E07] via-[#F8DC7A] to-white w-[2px] h-full  absolute left-0 top-0" />
+
                         <div className="flex flex-col">
                             <div className="text-xs font-medium tracking-tight leading-5 text-slate-400">
                                 Today
