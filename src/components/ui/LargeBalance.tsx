@@ -6,19 +6,18 @@ const LargeBalance: React.FC = () => {
     return (
         <section className="flex flex-col px-8 py-6 mt-7 bg-white rounded-3xl max-md:px-5 max-md:max-w-full">
             <div className="flex gap-5 justify-between w-full  max-md:max-w-full">
-                <div className="flex gap-3.5 max-md:max-w-full">
-                    <h2 className="grow my-auto text-2xl font-bold tracking-tight leading-8 text-blue-950">
+                <div className="flex flex-wrap gap-3.5 max-md:max-w-full">
+                    <h2 className="grow my-auto sm:text-2xl font-bold tracking-tight leading-8 text-blue-950">
                         Daily GPoints Earning
                     </h2>
-                    <div className="flex flex-auto gap-5 justify-between items-start px-6 py-5 max-md:px-5 relative rounded-md overflow-hidden shadow-sm min-h-[73px] min-w-[286px] " >
+                    <div className="flex flex-auto sm:gap-5 justify-between items-start px-6 py-5 max-md:px-5 relative rounded-md overflow-hidden shadow-sm min-h-[73px] min-w-[286px] " >
                         <div className="bg-gradient-to-r from-[#F57E07] via-[#F8DC7A] to-white w-[70%] h-[2px]  absolute top-0 left-0" />
                         <div className="bg-gradient-to-b from-[#F57E07] via-[#F8DC7A] to-white w-[2px] h-full  absolute left-0 top-0" />
-
                         <div className="flex flex-col">
                             <div className="text-xs font-medium tracking-tight leading-5 text-slate-400">
                                 Today
                             </div>
-                            <div className="text-2xl font-bold tracking-tight leading-8 text-blue-950">
+                            <div className="sm:text-2xl font-bold tracking-tight leading-8 text-blue-950">
                                 590 GPoints
                             </div>
                         </div>
@@ -32,7 +31,7 @@ const LargeBalance: React.FC = () => {
                 </div>
             </div>
             <div className="flex gap-3.5 mt-7  max-md:max-w-full">
-                <div className="flex flex-col self-start text-sm leading-4 text-right text-gray-500 whitespace-nowrap max-md:hidden">
+                <div className="flex flex-col self-start  text-sm leading-4 text-right text-gray-500 whitespace-nowrap ">
                     <div className="">6k</div>
                     <div className="mt-[26px]">5k</div>
                     <div className="mt-[26px]">4k</div>
