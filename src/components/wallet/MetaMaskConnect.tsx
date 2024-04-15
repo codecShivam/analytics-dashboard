@@ -58,8 +58,8 @@ const MetaMaskConnect: React.FC = () => {
   const handleConnect = async () => {
     try {
       if (isMobile) {
-        // Prompt the user to open MetaMask app
-        window.alert("Please open the MetaMask app to connect.");
+        // Automatically open MetaMask app
+        window.location.href = "ethereum:";
         return;
       }
 
