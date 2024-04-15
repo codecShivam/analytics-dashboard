@@ -9,7 +9,12 @@ import analyticsIcon from "../../assets/sidebar/analytics.png";
 
 type SidebarSection = 'credentials' | 'wallets' | 'profile' | 'graphs' | 'support' | 'repo';
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     const [active, setActive] = useState<SidebarSection>('graphs');
 
     const handleButtonClick = (section: SidebarSection) => {
@@ -17,7 +22,8 @@ const Sidebar: React.FC = () => {
     };
 
     return (
-        <aside className="sm:flex hidden fixed flex-col items-center px-5  top-0 pt-8 w-24 h-screen bg-[#0F123F] max-md:pl-5">
+        <aside className={`sm:flex ${isOpen ? 'flex' : 'hidden'} backdrop  fixed flex-col items-center z-40 px-5 top-0 pt-8 w-24 h-screen bg-[#0F123F] max-md:pl-5`}>
+            {isOpen && <div className="sm:hidden mb-12 " onClick={onClose}></div>}
             <button>
                 <img
                     loading="eager"
@@ -26,28 +32,28 @@ const Sidebar: React.FC = () => {
                     className="aspect-[1.59] w-[75px]"
                 />
             </button>
-            <button onClick={() => handleButtonClick('credentials')} className={`${active === 'credentials' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""} max-md:mt-2 mt-10 p-[18px]`}>
+            <button onClick={() => handleButtonClick('credentials')} className={`${active === 'credentials' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""}  mt-10 p-[18px]`}>
                 <img
                     loading="eager"
                     src={credentialsIcon}
                     alt="credentials"
                 />
             </button>
-            <button onClick={() => handleButtonClick('wallets')} className={`${active === 'wallets' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""} max-md:mt-2 mt-6 p-[18px]`}>
+            <button onClick={() => handleButtonClick('wallets')} className={`${active === 'wallets' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""}  mt-6 p-[18px]`}>
                 <img
                     loading="eager"
                     src={walletIcon}
                     alt="wallets"
                 />
             </button>
-            <button onClick={() => handleButtonClick('profile')} className={`${active === 'profile' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""} max-md:mt-2 mt-6 p-4 px-[21px]`}>
+            <button onClick={() => handleButtonClick('profile')} className={`${active === 'profile' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""}  mt-6 p-4 px-[21px]`}>
                 <img
                     loading="eager"
                     src={graphsIcon}
                     alt="profile"
                 />
             </button>
-            <button onClick={() => handleButtonClick('graphs')} className={`${active === 'graphs' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""} max-md:mt-2 mt-6 p-4`}>
+            <button onClick={() => handleButtonClick('graphs')} className={`${active === 'graphs' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""}  mt-6 p-4`}>
                 <img
                     loading="eager"
                     src={analyticsIcon}
@@ -55,15 +61,15 @@ const Sidebar: React.FC = () => {
                     className="border-[3px] rounded-sm p-1"
                 />
             </button>
-            <div className="flex flex-col  h-full justify-end pb-16">
-                <button onClick={() => handleButtonClick('support')} className={`${active === 'support' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""}  mt-6  max-md:mt-2 p-3`}>
+            <div className="flex flex-col h-full justify-end pb-16">
+                <button onClick={() => handleButtonClick('support')} className={`${active === 'support' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""} mt-6  p-3`}>
                     <img
                         loading="eager"
                         src={supportIcon}
                         alt="technical support"
                     />
                 </button>
-                <button onClick={() => handleButtonClick('repo')} className={`${active === 'repo' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""} max-md:mt-2 mt-6 p-[14px]`}>
+                <button onClick={() => handleButtonClick('repo')} className={`${active === 'repo' ? "rounded-lg bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] " : ""}  mt-6 p-[14px]`}>
                     <img
                         loading="eager"
                         src={repoIcon}
