@@ -12,7 +12,6 @@ const DonutChart: React.FC = () => {
             </div>
         </div>
     )
-
 }
 
 export default DonutChart;
