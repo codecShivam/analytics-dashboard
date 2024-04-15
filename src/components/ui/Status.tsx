@@ -5,7 +5,13 @@ import avgOrderImage from "../../assets/avgOrder.png";
 import avgRent from "../../assets/avgRent.png";
 import graph from "../../assets/graph.png";
 
-const statData = [
+interface Stat {
+    icon: string;
+    title: string;
+    value: string;
+}
+
+const statData: Stat[] = [
     {
         icon: totalBalanceImage,
         title: "Total Balance",
@@ -20,9 +26,9 @@ const statData = [
 
 const Status: React.FC = () => {
     return (
-        <div className="flex  sm:gap-5 gap-2 sm:justify-between justify-evenly max-xl:flex-wrap">
+        <div className="flex sm:gap-5 gap-2 sm:justify-between justify-evenly max-xl:flex-wrap">
             {statData.map((stat, index) => (
-                <StatCard key={index} {...stat} />
+                <StatCard key={index} icon={stat.icon} title={stat.title} value={stat.value} />
             ))}
             <div className="flex self-center sm:mt-0 mt-4 items-center sm:min-w-[332px] sm:min-h-[97px] py-4 px-4 sm:py-1 sm:px-4 md:py-3 md:pr-8 md:pl-5 bg-white rounded-3xl">
                 <div className="w-12 h-12 md:w-[56px] mr-5 md:h-[56px] flex justify-center items-center bg-gradient-to-br from-[#F57E07] to-[#F8DC7A] rounded-full shadow-sm">
