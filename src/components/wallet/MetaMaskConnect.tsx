@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import walletIcon from "../../assets/wallet.png";
 import dropDownIcon from "../../assets/dropIcon.png";
@@ -53,6 +53,15 @@ const MetaMaskConnect: React.FC = () => {
 
   const handleConnect = async () => {
     try {
+      if (!hasProvider) {
+        // MetaMask is not installed, prompt the user to install it or create a wallet
+        const installWallet = window.confirm("MetaMask is not installed. Do you want to install it or create a wallet in the browser?");
+        if (installWallet) {
+          window.open("https://metamask.io/download.html", "_blank");
+          return;
+        }
+      }
+
       const accounts: string[] = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
@@ -63,8 +72,6 @@ const MetaMaskConnect: React.FC = () => {
       console.error("Failed to connect:", error);
     }
   };
-
-
 
   const handleWalletClick = async (index: number) => {
     try {
@@ -109,7 +116,6 @@ const MetaMaskConnect: React.FC = () => {
           </div>
           {dropdownOpen && (
             <div className="absolute w-fit ml-0.5 bg-white border border-gray-200 shadow-md">
-
               {wallets.map((wallet, index) => (
                 <div
                   key={index}
