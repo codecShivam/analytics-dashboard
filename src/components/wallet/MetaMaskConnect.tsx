@@ -62,14 +62,6 @@ const MetaMaskConnect: React.FC = () => {
         window.location.href = metamaskAppDeepLink;
       }
 
-      if (!hasProvider) {
-        const installWallet = window.confirm("MetaMask is not installed. Do you want to install it or create a wallet in the browser?");
-        if (installWallet) {
-          window.open("https://metamask.io/download.html", "_blank");
-          return;
-        }
-      }
-
       const accounts: string[] = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
