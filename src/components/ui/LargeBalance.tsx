@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import arrow_down_up from "../../assets/arrow_drop_up.png";
 
-const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+const months: string[] = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+const options: string[] = ["Daily", "Weekly", "Monthly"];
 
 const LargeBalance: React.FC = () => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [selectedOption, setSelectedOption] = useState<string>('Daily');
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const selectOption = (option: string) => {
+        setSelectedOption(option);
+        toggleDropdown();
+    };
+
     return (
         <section className="flex  flex-col px-8 py-6 mt-7 bg-white rounded-3xl max-md:px-5 max-md:max-w-full">
             <div className="flex gap-5 justify-between w-full  max-md:max-w-full">
@@ -26,8 +40,22 @@ const LargeBalance: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex gap-5 justify-between self-start mt-1.5 text-sm font-bold tracking-tight leading-6 whitespace-nowrap text-slate-400">
-                    <div className="my-auto">Daily</div>
+                <div className="relative ">
+                    <div className="flex gap-5 justify-between self-start mt-1.5 text-sm font-bold tracking-tight leading-6 whitespace-nowrap text-slate-400">
+                        <div className="my-auto cursor-pointer" onClick={toggleDropdown}>{selectedOption}</div>
+                        <img src={arrow_down_up} alt="arrow" className="my-auto cursor-pointer" onClick={toggleDropdown} />
+                    </div>
+                    {isOpen && (
+                        <div className="origin-top-right z-30 absolute right-0 mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                {options.map((option: string) => (
+                                    <div key={option} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer" onClick={() => selectOption(option)}>
+                                        {option}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="flex sm:gap-3.5 gap-2 mt-7  max-md:max-w-full">
@@ -64,14 +92,14 @@ const LargeBalance: React.FC = () => {
                 </div>
             </div>
             <div className="flex justify-between mt-6 sm:mx-6 ml-2 pr-4 w-full text-xs sm:tracking-wider tracking-tighter leading-3 text-center text-gray-500 uppercase whitespace-nowrap  ">
-                {months.map((month) => (
+                {months.map((month: string) => (
                     <div key={month} className="">
                         {month}
                     </div>
                 ))}
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default LargeBalance;

@@ -13,7 +13,7 @@ const Analysis: React.FC = () => {
                     <span className="text-orange-500">Analytics</span>{" "}
                     <span className="font-medium">Dashboard</span>
                 </h1>
-                <div className="flex gap-5">
+                <div className="flex shrink-0 gap-5">
                     <Points points={156847} />
                     <MetaMaskConnect />
                 </div>

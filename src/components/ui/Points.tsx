@@ -6,7 +6,7 @@ interface GPointsProps {
 
 const Points: React.FC<GPointsProps> = ({ points }) => {
     return (
-        <div className="flex  sm:gap-5 gap-2 items-start px-3 py-2.5 bg-gray-400 rounded-lg">
+        <div className="flex  sm:gap-5  gap-2 items-start px-3 py-2.5 bg-gray-400 rounded-lg">
             <div className="flex flex-col whitespace-nowrap">
                 <div className="text-xs font-medium tracking-tight leading-4 text-[#E9EDF7]">
                     GPoints
