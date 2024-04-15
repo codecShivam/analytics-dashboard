@@ -88,14 +88,14 @@ const MetaMaskConnect: React.FC = () => {
             setDropdownOpen(!dropdownOpen);
           }
         }}>
-          <div className="flex gap-2.5 justify-between items-center px-3.5 py-2.5 text-base font-semibold leading-7 text-gray-900 whitespace-nowrap bg-white rounded-lg border border-gray-200 border-solid">
+          <div className="flex sm:gap-2.5 gap-1 justify-between items-center sm:px-3.5 px-2 py-2.5 text-base font-semibold leading-7 text-gray-900 whitespace-nowrap bg-white rounded-lg border border-gray-200 border-solid">
             <img
               loading="lazy"
               src={walletIcon}
               alt="wallet icon"
-              className="shrink-0 self-stretch my-auto aspect-square w-[22px]"
+              className="shrink-0 self-stretch my-auto aspect-square sm:w-[22px]"
             />
-            <div className="self-stretch">
+            <div className="self-stretch sm:text-lg flex items-center text-xs">
               {wallets[selectedWalletIndex].accounts.length > 0
                 ? `${wallets[selectedWalletIndex].accounts[0].substring(0, 6)}...${wallets[selectedWalletIndex].accounts[0].substring(wallets[selectedWalletIndex].accounts[0].length - 4)}`
                 : "Connect"}

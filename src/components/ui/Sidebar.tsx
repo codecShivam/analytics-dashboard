@@ -17,7 +17,7 @@ const Sidebar: React.FC = () => {
     };
 
     return (
-        <aside className="flex fixed flex-col items-center px-5  top-0 pt-8 w-24 h-screen bg-[#0F123F] max-md:pl-5">
+        <aside className="sm:flex hidden fixed flex-col items-center px-5  top-0 pt-8 w-24 h-screen bg-[#0F123F] max-md:pl-5">
             <button>
                 <img
                     loading="eager"

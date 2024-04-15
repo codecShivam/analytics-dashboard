@@ -3,7 +3,7 @@ import DonutChart from "./chart";
 
 const SmallChart: React.FC = () => {
     return (
-        <div className="flex flex-col grow w-fit ml-5 max-md:ml-0">
+        <div className="flex flex-col  grow md:w-fit ml-5 max-md:ml-0">
             <section className="flex justify-center items-center flex-col px-3 pt-6 pb-14 mx-auto w-full font-bold bg-white rounded-3xl max-md:mt-8">
                 <h2 className="self-center text-sm font-medium tracking-tight leading-6 text-slate-400">
                     Rented / Listed Percentage

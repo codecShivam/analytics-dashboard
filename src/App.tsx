@@ -4,7 +4,7 @@ import Sidebar from './components/ui/Sidebar';
 
 const App = () => {
   return (
-    <div className="flex  bg-[#F8F8FF]">
+    <div className="flex">
       <Sidebar />
       <Analysis />
     </div>

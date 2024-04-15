@@ -7,7 +7,7 @@ import SmallChart from "./SmallChart";
 
 const Analysis: React.FC = () => {
     return (
-        <div className="flex ml-24 flex-col grow shrink-0 self-start pt-9  w-fit max-md:max-w-full px-12">
+        <div className="flex sm:ml-24 flex-col grow shrink-0 self-start pt-9  w-fit max-md:max-w-full sm:px-12 px-4">
             <div className="flex gap-5 w-full max-md:flex-wrap max-md:max-w-full">
                 <h1 className="flex-auto self-start mt-4 text-2xl font-bold leading-10 text-black">
                     <span className="text-orange-500">Analytics</span>{" "}
