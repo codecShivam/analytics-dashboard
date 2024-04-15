@@ -58,10 +58,26 @@ const MetaMaskConnect: React.FC = () => {
   const handleConnect = async () => {
     try {
       if (isMobile) {
-        // Automatically open MetaMask app
-        window.location.href = "ethereum:";
+        // Check if MetaMask app is installed
+        const isMetaMaskInstalled = window.ethereum?.isMetaMask;
+  
+        if (isMetaMaskInstalled) {
+          // Create MetaMask app deep link
+          const metamaskAppDeepLink = `https://metamask.app.link/dapp/${window.location.origin.slice(8)}`;
+          
+          // Open the MetaMask app deep link
+          window.location.href = metamaskAppDeepLink;
+        } else {
+          // MetaMask app not installed, provide instructions to install it
+          const installWallet = window.confirm("MetaMask app is not installed. Please install it from the app store and open it to connect.");
+          if (installWallet) {
+            // Provide link to MetaMask app in app store
+            window.open("https://metamask.io/download.html", "_blank");
+          }
+        }
         return;
       }
+  
 
       if (!hasProvider) {
         // MetaMask is not installed, prompt the user to install it or create a wallet
@@ -82,6 +98,7 @@ const MetaMaskConnect: React.FC = () => {
       console.error("Failed to connect:", error);
     }
   };
+
 
   const handleWalletClick = async (index: number) => {
     try {
