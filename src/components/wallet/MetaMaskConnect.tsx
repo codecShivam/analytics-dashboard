@@ -108,16 +108,16 @@ const MetaMaskConnect: React.FC = () => {
             />
           </div>
           {dropdownOpen && (
-            <div className="absolute top-[84px] ml-0.5 bg-white border border-gray-200 shadow-md">
+            <div className="absolute w-fit ml-0.5 bg-white border border-gray-200 shadow-md">
 
               {wallets.map((wallet, index) => (
                 <div
                   key={index}
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex justify-center items-center"
+                  className="sm:px-9 px-2 py-2 hover:bg-gray-100 cursor-pointer flex justify-center items-center"
                   onClick={() => handleWalletClick(index)}
                 >
                   <div>
-                    {wallet.accounts[0]?.substring(0, 12)}...{wallet.accounts[0]?.substring(wallet.accounts[0]?.length - 4)}
+                    {wallet.accounts[0]?.substring(0, 9)}...{wallet.accounts[0]?.substring(wallet.accounts[0]?.length - 4)}
                   </div>
                 </div>
               ))}

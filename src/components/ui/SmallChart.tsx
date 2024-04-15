@@ -1,5 +1,5 @@
 import React from "react";
-import DonutChart from "./chart";
+import DonutChart from "./DonutChart";
 
 const SmallChart: React.FC = () => {
     return (

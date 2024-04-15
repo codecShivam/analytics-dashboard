@@ -23,7 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
     return (
         <aside className={`sm:flex ${isOpen ? 'flex' : 'hidden'} backdrop  fixed flex-col items-center z-40 px-5 top-0 pt-8 w-24 h-screen bg-[#0F123F] max-md:pl-5`}>
-            {isOpen && <div className="sm:hidden mb-12 " onClick={onClose}></div>}
+            {isOpen && <div className="sm:hidden pb-12 " onClick={onClose}></div>}
             <button>
                 <img
                     loading="eager"
