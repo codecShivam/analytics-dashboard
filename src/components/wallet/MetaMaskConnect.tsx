@@ -8,6 +8,7 @@ interface WalletState {
 }
 
 const MetaMaskConnect: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
   const [hasProvider, setHasProvider] = useState<boolean | null>(null);
   const initialState: WalletState = { accounts: [] };
   const [wallets, setWallets] = useState<WalletState[]>([initialState]);
@@ -15,6 +16,9 @@ const MetaMaskConnect: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
   useEffect(() => {
+    const userAgent = window.navigator.userAgent;
+    setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent));
+
     const refreshAccounts = (accounts: string[]) => {
       if (accounts.length > 0) {
         updateWallets(accounts);
@@ -53,6 +57,12 @@ const MetaMaskConnect: React.FC = () => {
 
   const handleConnect = async () => {
     try {
+      if (isMobile) {
+        // Prompt the user to open MetaMask app
+        window.alert("Please open the MetaMask app to connect.");
+        return;
+      }
+
       if (!hasProvider) {
         // MetaMask is not installed, prompt the user to install it or create a wallet
         const installWallet = window.confirm("MetaMask is not installed. Do you want to install it or create a wallet in the browser?");
